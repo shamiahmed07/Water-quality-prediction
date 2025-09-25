@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confetti Test</title>
+</head>
+<body>
+    <h1>Confetti Test</h1>
+    <button id="triggerConfetti">Trigger Confetti</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.min.js"></script>
+    <script>
+        console.log("JSConfetti script tag parsed.");
+        console.log("typeof JSConfetti:", typeof JSConfetti); // Should be 'function' here
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("DOM loaded, inside event listener.");
+            console.log("typeof JSConfetti (inside DOMContentLoaded):", typeof JSConfetti); // Should be 'function' here
+
+            const jsConfettiInstance = new JSConfetti();
+            console.log("Confetti instance created.");
+
+            document.getElementById('triggerConfetti').addEventListener('click', () => {
+                console.log("Button clicked.");
+                jsConfettiInstance.addConfetti();
+            });
+        });
+    </script>
+</body>
+</html>

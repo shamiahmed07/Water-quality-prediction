@@ -1,0 +1,1136 @@
+ 
+      /* General Styling */
+:root {
+    --primary-color: #7B61FF; /* A vibrant, kid-friendly purple */
+    --secondary-color: #FF6B8B; /* A playful pink */
+    --tertiary-color: #50E3C2; /* A bright, energetic teal */
+    --dark-bg: #0A0A2A; /* Deep space dark blue */
+    --light-bg: #F0F2F5; /* Soft light grey */
+    --text-color-light: #FFFFFF;
+    --text-color-dark: #333333;
+    --card-bg: #1B1B3A; /* Slightly lighter dark for cards */
+    --border-radius-large: 15px;
+    --border-radius-small: 8px;
+    --transition-speed: 0.3s ease;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--light-bg);
+    color: var(--text-color-dark);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif; /* Techy, futuristic font for headings */
+    color: var(--dark-bg);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 3.5em;
+    color: var(--text-color-light); /* For hero section */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 2.8em;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+.section-padded {
+    padding: 100px 0;
+    position: relative;
+}
+
+.bg-dark-gradient {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #150E33 100%);
+    color: var(--text-color-light);
+}
+
+.bg-dark-gradient h2, .bg-dark-gradient h3 {
+    color: var(--text-color-light);
+}
+
+.bg-dark-gradient h2::after {
+    background-color: var(--tertiary-color);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: var(--border-radius-large);
+    font-weight: 600;
+    font-size: 1.1em;
+    cursor: pointer;
+    border: none;
+    transition: all var(--transition-speed);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+    background-color: var(--tertiary-color);
+    color: var(--dark-bg);
+    border: 2px solid var(--tertiary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--text-color-light);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-large {
+    padding: 18px 40px;
+    font-size: 1.2em;
+}
+
+/* Header */
+header {
+    background-color: var(--dark-bg);
+    padding: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; /* Adjust as needed */
+    filter: brightness(0) invert(1); /* Makes placeholder white */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    color: var(--text-color-light);
+    font-weight: 600;
+    font-size: 1.1em;
+    position: relative;
+    padding: 5px 0;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: width var(--transition-speed);
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #150E33 100%);
+    color: var(--text-color-light);
+    padding: 120px 0;
+    display: flex;
+    align-items: center;
+    min-height: 80vh;
+    overflow: hidden; /* For particles/animations */
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="25" r="2" fill="%237B61FF" opacity="0.4"/><circle cx="75" cy="50" r="3" fill="%23FF6B8B" opacity="0.3"/><circle cx="50" cy="75" r="2.5" fill="%2350E3C2" opacity="0.5"/><circle cx="10" cy="80" r="1.5" fill="%237B61FF" opacity="0.2"/><circle cx="90" cy="20" r="2" fill="%23FF6B8B" opacity="0.3"/><circle cx="40" cy="10" r="3" fill="%2350E3C2" opacity="0.4"/></svg>') repeat;
+    background-size: 100px;
+    opacity: 0.15;
+    animation: background-pan 60s linear infinite;
+}
+
+@keyframes background-pan {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /* Ensure content is above pseudo-element */
+    z-index: 1;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-image {
+    flex: 1;
+    text-align: right;
+    position: relative;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    animation: popIn 1.2s ease-out forwards;
+    transform: scale(0.8);
+    opacity: 0;
+}
+
+/* Offer Grid */
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.offer-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius-large);
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    position: relative;
+    overflow: hidden;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.offer-card:nth-child(1) { animation-delay: 0.1s; }
+.offer-card:nth-child(2) { animation-delay: 0.2s; }
+.offer-card:nth-child(3) { animation-delay: 0.3s; }
+.offer-card:nth-child(4) { animation-delay: 0.4s; }
+.offer-card:nth-child(5) { animation-delay: 0.5s; }
+.offer-card:nth-child(6) { animation-delay: 0.6s; }
+
+
+.offer-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.offer-card .icon-wrapper {
+    background-color: var(--primary-color);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.offer-card .icon-wrapper img {
+    height: 40px;
+    width: 40px;
+    filter: brightness(0) invert(1); /* Make icons white */
+}
+
+/* Why Us Section */
+.why-us-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.why-us-card {
+    background-color: var(--text-color-light);
+    padding: 40px;
+    border-radius: var(--border-radius-large);
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    border-bottom: 5px solid var(--primary-color);
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.why-us-card:nth-child(1) { animation-delay: 0.1s; }
+.why-us-card:nth-child(2) { animation-delay: 0.2s; }
+.why-us-card:nth-child(3) { animation-delay: 0.3s; }
+
+.why-us-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-color: var(--secondary-color);
+}
+
+.why-us-card .icon-wrapper {
+    background-color: var(--secondary-color);
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 25px auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.why-us-card .icon-wrapper img {
+    height: 50px;
+    width: 50px;
+    filter: brightness(0) invert(1);
+}
+
+.why-us-card h3 {
+    color: var(--dark-bg);
+}
+
+/* AI Playground */
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2em;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 60px;
+}
+
+.playground-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.game-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: var(--border-radius-large);
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.game-card:nth-child(1) { animation-delay: 0.1s; }
+.game-card:nth-child(2) { animation-delay: 0.2s; }
+
+.game-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary-color);
+}
+
+.game-card h3 {
+    color: var(--tertiary-color);
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.game-card p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
+}
+
+/* Game Modal Styling */
+.game-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1001; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.game-modal.active {
+    display: flex;
+}
+
+.game-content {
+    background-color: var(--dark-bg);
+    margin: auto;
+    padding: 40px;
+    border-radius: var(--border-radius-large);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    animation: zoomIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    color: var(--text-color-light);
+}
+
+.game-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.game-content button {
+    margin-top: 20px;
+}
+
+.game-content .close-game {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--text-color-light);
+    font-size: 2em;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    transition: color var(--transition-speed);
+}
+
+.game-content .close-game:hover {
+    color: var(--secondary-color);
+}
+
+/* Tic-Tac-Toe Specifics */
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    width: 315px;
+    margin: 30px auto;
+    background-color: #333;
+    border-radius: var(--border-radius-small);
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease-out;
+    color: var(--tertiary-color);
+}
+
+.cell:hover {
+    background-color: #444;
+}
+
+.cell:active {
+    transform: scale(0.95);
+}
+
+.cell.x {
+    color: var(--primary-color);
+}
+
+.cell.o {
+    color: var(--secondary-color);
+}
+
+#game-status {
+    margin-top: 20px;
+    font-size: 1.4em;
+    color: var(--tertiary-color);
+    font-family: 'Orbitron', sans-serif;
+}
+
+#reset-game {
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    padding: 12px 25px;
+    border-radius: var(--border-radius-small);
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    margin-right: 10px;
+    transition: all var(--transition-speed);
+}
+
+#reset-game:hover {
+    background-color: #FF8BA6;
+    transform: translateY(-2px);
+}
+
+/* Color Generator Specifics */
+#color-box {
+    margin: 30px auto;
+    border: 3px solid var(--primary-color);
+    transition: background-color 0.5s ease;
+}
+
+#color-hex {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--tertiary-color);
+    margin-bottom: 25px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+#generate-color {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    padding: 12px 25px;
+    border-radius: var(--border-radius-small);
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all var(--transition-speed);
+}
+
+#generate-color:hover {
+    background-color: #9B82FF;
+    transform: translateY(-2px);
+}
+
+
+/* Call to Action */
+#call-to-action {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--text-color-light);
+    padding: 80px 0;
+    text-align: center;
+    box-shadow: inset 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+#call-to-action h2 {
+    color: var(--text-color-light);
+    font-size: 3em;
+}
+
+#call-to-action h2::after {
+    background-color: var(--tertiary-color);
+}
+
+#call-to-action p {
+    font-size: 1.4em;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-bg);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 40px 0;
+    font-size: 0.9em;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+footer ul li {
+    margin-left: 20px;
+}
+
+footer ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+}
+
+footer ul li a:hover {
+    color: var(--tertiary-color);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.8em;
+    }
+    h2 {
+        font-size: 2.2em;
+    }
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content {
+        margin-bottom: 50px;
+        max-width: 100%;
+    }
+    .hero-image {
+        text-align: center;
+    }
+    .hero-image img {
+        max-width: 80%;
+    }
+    nav ul {
+        display: none; /* Hide navigation for smaller screens, usually replaced by a hamburger menu */
+    }
+    header .btn-primary {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-padded {
+        padding: 60px 0;
+    }
+    h1 {
+        font-size: 2.2em;
+    }
+    h2 {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+    .hero {
+        padding: 80px 0;
+    }
+    .btn-primary, .btn-secondary {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    .offer-grid, .why-us-grid, .playground-grid {
+        grid-template-columns: 1fr;
+    }
+    footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    footer ul {
+        margin-top: 20px;
+        justify-content: center;
+    }
+    footer ul li {
+        margin: 0 10px;
+    }
+    .game-content {
+        padding: 30px 20px;
+        width: 95%;
+    }
+    #board {
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        height: 300px;
+    }
+    .cell {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+    .game-content h3 {
+        font-size: 1.6em;
+    }
+    #game-status {
+        font-size: 1.2em;
+    }
+    .btn-large {
+        padding: 15px 30px;
+        font-size: 1.1em;
+    }
+}
+    /* Add to your :root for new colors/gradients */
+:root {
+    /* ... existing colors ... */
+    --wall-color: #4A4A6A; /* For maze walls */
+    --path-color: #2F2F4F; /* For maze path */
+}
+
+/* Make game modal content larger */
+.game-content {
+    padding: 50px; /* Increased padding */
+    max-width: 600px; /* Increased max-width */
+    width: 90%;
+}
+
+/* Tic-Tac-Toe start screen styling */
+#tictactoe-start-screen {
+    margin-bottom: 30px;
+}
+#tictactoe-start-screen label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: var(--tertiary-color);
+}
+#player-name {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius-small);
+    background-color: #333;
+    color: var(--text-color-light);
+    font-size: 1.1em;
+    text-align: center;
+}
+#player-name::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Adjust Tic-Tac-Toe board for larger cells in wider modal */
+#board {
+    grid-template-columns: repeat(3, 120px); /* Larger cells */
+    grid-template-rows: repeat(3, 120px); /* Larger cells */
+    width: 375px; /* Adjust width */
+    margin: 30px auto;
+}
+.cell {
+    width: 120px; /* Match grid */
+    height: 120px; /* Match grid */
+    font-size: 4em; /* Larger X/O */
+}
+#reset-game, #start-tictactoe, .close-game { /* Style these buttons consistently */
+    margin: 10px;
+}
+
+/* Random Color Generator - "Crazy" style */
+#color-box-wrapper {
+    position: relative;
+    width: 160px; /* Slightly larger than color-box to hold gradient */
+    height: 160px;
+    margin: 20px auto;
+    border-radius: var(--border-radius-large);
+    overflow: hidden; /* Important for gradient effect */
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transition: all 0.5s ease;
+}
+#color-box {
+    position: absolute;
+    top: 5px; /* Offset to show gradient border */
+    left: 5px;
+    width: 150px;
+    height: 150px;
+    border-radius: var(--border-radius-large);
+    transition: background-color 0.5s ease, transform 0.2s ease;
+}
+#color-box-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--tertiary-color));
+    z-index: 0;
+    filter: blur(8px); /* Soft glow effect */
+    transition: background 0.5s ease;
+    animation: rotateGradient 5s linear infinite; /* Subtle gradient rotation */
+}
+@keyframes rotateGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* NEW: Maze Game Styling */
+#maze-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+#maze-board {
+    display: grid;
+    border: 3px solid var(--primary-color);
+    border-radius: var(--border-radius-small);
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    margin-bottom: 25px;
+}
+.maze-cell {
+    width: 40px; /* Size of each cell */
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--path-color); /* Default path */
+    transition: background-color 0.2s ease;
+    font-size: 1.5em; /* For icons */
+    color: var(--tertiary-color);
+}
+.maze-cell.wall {
+    background-color: var(--wall-color);
+}
+.maze-cell.player {
+    background-color: var(--secondary-color); /* Rabbit's path */
+    color: var(--text-color-light);
+}
+.maze-cell.start, .maze-cell.end {
+    background-color: var(--tertiary-color);
+    color: var(--dark-bg);
+}
+#maze-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+#maze-controls div {
+    display: flex;
+    gap: 10px;
+}
+#maze-controls button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+#maze-status {
+    margin-top: 20px;
+    font-size: 1.3em;
+    color: var(--tertiary-color);
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* NEW: Guess the Number Game Styling */
+#guess-number-game .game-content p {
+    color: var(--text-color-light);
+    font-size: 1.1em;
+}
+#guess-input {
+    width: calc(100% - 40px);
+    max-width: 200px;
+    padding: 12px;
+    margin: 20px auto;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius-small);
+    background-color: #333;
+    color: var(--text-color-light);
+    font-size: 1.2em;
+    text-align: center;
+    display: block; /* Center input */
+}
+#guess-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+#submit-guess {
+    margin-bottom: 20px;
+}
+#guess-feedback {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--tertiary-color);
+    margin-top: 15px;
+}
+#guess-attempts {
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+/* Media Queries for Game Modals on smaller screens */
+@media (max-width: 768px) {
+    .game-content {
+        padding: 30px 20px; /* Reduce padding */
+        max-width: 95%; /* Make it wider */
+    }
+    #board {
+        grid-template-columns: repeat(3, 90px); /* Smaller cells for Tic-Tac-Toe */
+        grid-template-rows: repeat(3, 90px);
+        width: 285px; /* Adjust width */
+    }
+    .cell {
+        width: 90px;
+        height: 90px;
+        font-size: 3em;
+    }
+    .maze-cell {
+        width: 30px; /* Smaller maze cells */
+        height: 30px;
+        font-size: 1.2em;
+    }
+    #maze-controls button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-content {
+        padding: 20px 15px;
+    }
+    #board {
+        grid-template-columns: repeat(3, 70px);
+        grid-template-rows: repeat(3, 70px);
+        width: 225px;
+    }
+    .cell {
+        width: 70px;
+        height: 70px;
+        font-size: 2.5em;
+    }
+    .maze-cell {
+        width: 25px; /* Even smaller maze cells */
+        height: 25px;
+        font-size: 1em;
+    }
+    #maze-controls button {
+        width: 45px;
+        height: 45px;
+        font-size: 1em;
+    }
+    #player-name, #guess-input {
+        padding: 10px;
+        font-size: 1em;
+    }
+
+
+
+
+}
+
+
+/* ... other styles ... */
+
+.game-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Slightly darker overlay */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.game-modal.active {
+    display: flex;
+}
+
+.game-modal .game-content {
+    background-color: #1a1a2e;
+    padding: 20px; /* Reduced padding slightly to give content more room */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: #eee; /* Ensure text is visible */
+
+    /* --- Key changes for "super big" --- */
+    width: 95%; /* Take up 95% of the viewport width */
+    max-width: 1200px; /* Prevent it from getting excessively wide on very large screens */
+    height: 90%; /* Take up 90% of the viewport height */
+    max-height: 90vh; /* Also important for height */
+    overflow-y: auto; /* Still allow internal scrolling if game content is very tall */
+
+    display: flex; /* Use flexbox for inner alignment */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: flex-start; /* Align content to the top */
+
+    /* Add a subtle animation for opening */
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+/* Animation for when the modal is active */
+.game-modal.active .game-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Also ensure game boards themselves can expand */
+#tictactoe-game-area, #maze-container, #color-generator-game .game-content > div {
+    flex-grow: 1; /* Allow game specific content to take available space */
+    display: flex;
+    flex-direction: column; /* Stack internally */
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ensure they use the full width of the modal content */
+}
+
+#board, #maze-board { /* Specific game board styles */
+    /* You might need to adjust widths/heights here to make them bigger */
+    width: min(90%, 500px); /* Example: 90% of modal width, up to 500px */
+    height: width; /* Keep it square */
+    margin: 20px auto;
+    /* Add any other styling for your boards */
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 768px) {
+    .game-modal .game-content {
+        width: 98%; /* Slightly more width on smaller screens */
+        height: 95%;
+        padding: 15px;
+    }
+}
