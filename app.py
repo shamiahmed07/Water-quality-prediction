@@ -7,7 +7,13 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 
 # --- Load dataset ---
-dataset = pd.read_csv(r"C:\Users\asrar\OneDrive\Desktop\html code\website\water quality prediction\water_potability.csv")
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CSV_PATH = os.path.join(BASE_DIR, "water_potability.csv")
+
+dataset = pd.read_csv(CSV_PATH)
+
 dataset = dataset.fillna(dataset.mean())
 
 X = dataset.drop("Potability", axis=1)
