@@ -7,7 +7,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 
 # --- Load dataset ---
-dataset = pd.read_csv(r"C:\Users\asrar\OneDrive\Desktop\html code\website\water quality prediction\water_potability.csv")
+dataset = pd.read_csv("water_potability.csv")
 dataset = dataset.fillna(dataset.mean())
 
 X = dataset.drop("Potability", axis=1)
@@ -51,3 +51,4 @@ if st.button("Predict Water Quality"):
         st.success("✅ The water is SAFE to drink.")
     else:
         st.error("⚠️ The water is NOT SAFE to drink.")
+
