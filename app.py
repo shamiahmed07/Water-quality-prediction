@@ -1,29 +1,16 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
+import joblib
+import os
 
-# --- Load dataset ---
-dataset = pd.read_csv("water_potability.csv")
-dataset = dataset.fillna(dataset.mean())
+# --- Load pre-trained model and scaler ---
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "water_model.pkl")
+SCALER_PATH = os.path.join(BASE_DIR, "scaler.pkl")
 
-X = dataset.drop("Potability", axis=1)
-y = dataset["Potability"]
-
-# --- Train/test split ---
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
-
-# --- Feature scaling ---
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
-
-# --- Train Random Forest (better for classification) ---
-model = RandomForestClassifier(n_estimators=100, random_state=42)
-model.fit(X_train, y_train)
+model = joblib.load(MODEL_PATH)
+scaler = joblib.load(SCALER_PATH)
 
 # --- Streamlit UI ---
 st.title("💧 Water Quality Prediction App")
@@ -51,4 +38,3 @@ if st.button("Predict Water Quality"):
         st.success("✅ The water is SAFE to drink.")
     else:
         st.error("⚠️ The water is NOT SAFE to drink.")
-
